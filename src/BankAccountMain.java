@@ -30,27 +30,35 @@ public class BankAccountMain {
 				{
 					if (accType.equals("check"))
 					{
-						System.out.println("Would you like a balance of zero? Enter 'Y' if yes and 'N' if not (Case sensitive):");
+						String name;
+						System.out.println("Please enter the name of the owner of the bank account: ");
+						
+						double bal;
+						System.out.println("Would you like a balance of zero? Enter 'Y' if yes and 'N' if not:");
 						String balChoice = in.next();
 						in.nextLine();
 						boolean continue2 = true;
 						while (continue2)
 						{
-							if (balChoice.equals("Y") || balChoice.)
+							if (balChoice.equals("Y") || balChoice.equals("y"))
 							{
-								
+								bal = 0;
+								continue2 = false;
 							}
-							else if (balChoice.equals("N"))
+							else if (balChoice.equals("N") || balChoice.equals("n"))
 							{
-								
+								System.out.println("What would you like the balance to be: ");
+								bal = in.nextDouble();
+								continue2 = false;
 							}
-							else
+							els	e
 							{
 								System.out.println("The input " + str + " is not a valid input. Please enter a valid one to continue.");
 								balChoice = in.next();
 								in.nextLine();
 							}
 						}
+						
 					}
 						else  if (accType.equals("save"))
 					{
