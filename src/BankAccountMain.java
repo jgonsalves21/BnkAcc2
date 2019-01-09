@@ -32,6 +32,15 @@ public class BankAccountMain {
 					{
 						String name;
 						System.out.println("Please enter the name of the owner of the bank account: ");
+						name = in.nextLine();
+						boolean continue4 = true;
+						while (continue4)
+						{
+							for (int i = 0; i < name.length(); i++)
+							{
+								
+							}
+						}
 						
 						double bal;
 						System.out.println("Would you like a balance of zero? Enter 'Y' if yes and 'N' if not:");
@@ -51,7 +60,7 @@ public class BankAccountMain {
 								bal = in.nextDouble();
 								continue2 = false;
 							}
-							els	e
+							else
 							{
 								System.out.println("The input " + str + " is not a valid input. Please enter a valid one to continue.");
 								balChoice = in.next();
