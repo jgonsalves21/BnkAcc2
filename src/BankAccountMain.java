@@ -17,89 +17,123 @@ public class BankAccountMain {
 		
 		while (!terminate)
 		{
-			System.out.println("Enter 'new' for a new account, 'transaction' for a transaction, or 'terminate' to terminate:" );
+			System.out.println("Enter 'A' for a new account, 'T' for a transaction, or 'TRM' to terminate:" );
 			String str = in.next();
 			in.nextLine();
-			if (str.equals("new"))
+			switch(str)
 			{
-				System.out.println("Enter 'check' for a checking account, and 'save' for a savings account (Case sensitive):");
-				String accType = in.next();
-				in.nextLine();
-				boolean continue1 = true;
-				while (continue1)
+				case "A":
 				{
-					if (accType.equals("check"))
-					{
-						String name;
-						System.out.println("Please enter the name of the owner of the bank account: ");
-						name = in.nextLine();
-						boolean continue4 = true;
-						while (continue4)
+					System.out.println("Enter 'check' for a checking account, and 'save' for a savings account (Case sensitive):");
+					String accType = in.next();
+					in.nextLine();
+						if (accType.equals("check"))
 						{
-							for (int i = 0; i < name.length(); i++)
+							String name;
+							System.out.println("Please enter the name of the owner of the bank account: ");
+							name = in.nextLine();
+							if (!isNumeric(name))
 							{
 								
 							}
+							else 
+							{
+								
+							}
+							
+							double bal;
+							System.out.println("Would you like a balance of zero? Enter 'Y' if yes and 'N' if not:");
+							String balChoice = in.next();
+							in.nextLine();
+							boolean continue2 = true;
+							while (continue2)
+							{
+								if (balChoice.equals("Y") || balChoice.equals("y"))
+								{
+									bal = 0;
+									continue2 = false;
+								}
+								else if (balChoice.equals("N") || balChoice.equals("n"))
+								{
+									System.out.println("What would you like the balance to be: ");
+									bal = in.nextDouble();
+									continue2 = false;
+								}
+								else
+								{
+									System.out.println("The input " + str + " is not a valid input. Please enter a valid one to continue.");
+									balChoice = in.next();
+									in.nextLine();
+								}
+							}
+							
 						}
-						
-						double bal;
-						System.out.println("Would you like a balance of zero? Enter 'Y' if yes and 'N' if not:");
-						String balChoice = in.next();
-						in.nextLine();
-						boolean continue2 = true;
-						while (continue2)
+							else  if (accType.equals("save"))
 						{
-							if (balChoice.equals("Y") || balChoice.equals("y"))
+							System.out.println("Would you like a balance of zero? Enter 'Y' if yes and 'N' if not: ");
+							String balChoice = in.next();
+							in.nextLine();
+							switch(balChoice)
 							{
-								bal = 0;
-								continue2 = false;
+							case "Y":
+							{
+								
 							}
-							else if (balChoice.equals("N") || balChoice.equals("n"))
+							case "N":
 							{
-								System.out.println("What would you like the balance to be: ");
-								bal = in.nextDouble();
-								continue2 = false;
+								
 							}
-							else
+							default:
 							{
-								System.out.println("The input " + str + " is not a valid input. Please enter a valid one to continue.");
-								balChoice = in.next();
-								in.nextLine();
+								System.out.println(balChoice + " is an invalid input. Would you like a balance of zero? Enter 'Y' if yes and 'N' if not: ");
+								balChoice = in.next();A
+								
+							}
 							}
 						}
-						
-					}
-						else  if (accType.equals("save"))
-					{
-						System.out.println("Would you like a balance of zero? Enter 'Y' if yes and 'N' if not (Case sensitive):");
-						String balChoice = in.next();
-						in.nextLine();
-					}
-					else 
-					{
-						System.out.println("The input " + str + " is not a valid input. Please enter a valid one to continue.");
-						System.out.println("Enter 'check' for a checking account, and 'save' for a savings account (Case sensitive):");
-						accType = in.next();
-						in.nextLine();
-					}
+						else 
+						{
+							System.out.println("The input " + str + " is not a valid input. Please enter a valid one to continue.");
+							System.out.println("Enter 'check' for a checking account, and 'save' for a savings account (Case sensitive):");
+							accType = in.next();
+							in.nextLine();
+						}
 				}
-			}
-			else if (str.equals("transaction"))
-			{
-				System.out.println("Transfer");
-			}
-			else if (str.equals("terminate"))
-			{
-				terminate = !terminate;	
-			}
-			else
-			{
-				System.out.println("The input " + str + " is not a valid input. Please enter a valid one to continue.");
-				System.out.println("Enter 1 for a new account, 2 for a transaction, or 3 to terminate:" );
-				str = in.next();
-				in.nextLine();
+			
+				
+				
+				
+				case "T":
+				{
+					System.out.println("Transfer");
+				}
+				case "TRM":
+				{
+					terminate = !terminate;	
+				}
+				default:
+				{
+					System.out.println("The input " + str + " is not a valid input. Please enter a valid one to continue.");
+					System.out.println("Enter 'A' for a new account, 'T' for a transaction, or 'TRM' to terminate:" );
+					str = in.next();
+					in.nextLine();
+				}
 			}
 		}
 	}
+	
+	private static boolean isNumeric(String str)
+	{
+	try
+	{
+	Double.parseDouble(str);
+	return true;
+	}
+			catch(IllegalArgumentException e)
+			{
+				return false;
+			}
+	}
+
 
 }
