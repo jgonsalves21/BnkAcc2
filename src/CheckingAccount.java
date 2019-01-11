@@ -1,4 +1,8 @@
-
+/**
+* @author Joshua Gonsalves
+* class CheckingAccount
+*
+*/
 public class CheckingAccount extends BankAccount
 {
 	private final double OVER_DRAFT_FEE;
@@ -6,6 +10,16 @@ public class CheckingAccount extends BankAccount
 	private final double FREE_TRANS;
 	private int numTransactions;
 	
+	/**
+        * Constructor Checking Account
+        * Creates a checking account with params:
+        *  
+	* @param n: Name of account owner
+	* @param b: Balance of account
+        * @param odf: Overdraft fee of the account
+	* @param tf: Transaction fee of account
+	* @param freeTrans: Number of free transactions 
+        */
 	public CheckingAccount(String n, double b, double odf, double tf, int freeTrans)
 	{
 		super(n, b);
@@ -14,6 +28,15 @@ public class CheckingAccount extends BankAccount
 		FREE_TRANS = freeTrans;
 	}
 	
+	/**
+        * Constructor Checking Account
+        * Creates a checking account with balance of 0 with params:
+        *  
+	* @param n: Name of account owner
+        * @param odf: Overdraft fee of the account
+	* @param tf: Transaction fee of account
+	* @param freeTrans: Number of free transactions 
+	*/
 	public CheckingAccount(String n, double odf, double tf, int freeTrans)
 	{
 		super(n);
