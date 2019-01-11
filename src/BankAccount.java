@@ -8,7 +8,7 @@ public abstract class BankAccount
 	private double balance;
 	
 	/**
-	 * BankAccount: Creates an object wit params:
+	 * BankAccount: Creates an object with params:
 	 * 
 	 * @param n		Name of BankAccount
 	 * Balance is set to 0
