@@ -41,7 +41,7 @@ public class SavingsAccount extends BankAccount
 	
 	public void transfer(BankAccount other, double amt)
 	{
-		if (other.GetName().equals(super.GetName()))
+		if (other.getName().equals(super.getName()))
 		{
 			super.withdraw(amt);
 			if (super.getBalance() > 0)

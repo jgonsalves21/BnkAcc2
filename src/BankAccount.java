@@ -1,25 +1,39 @@
 
 public abstract class BankAccount 
 {
-	private static int nextAccNum;
+	// Fields
+	private static int nextAccNum = 0;
 	private String name;
-	private int accNum = 0;
+	private int accNum;
 	private double balance;
 	
+	/**
+	 * BankAccount: Creates an object wit params:
+	 * 
+	 * @param n		Name of BankAccount
+	 * Balance is set to 0
+	 * Increases accNum by 1 every time a new BankAccount is created
+	 */
 	public BankAccount(String n)
 	{
 		this.balance = 0;
 		this.name = n;
-		nextAccNum = accNum + 1;
-		accNum = nextAccNum;
+		nextAccNum++;
+		accNum= nextAccNum;
 	}
 	
+	/**
+	 * BankAccount:	Creates an object with params:
+	 * 
+	 * @param n		Name of BankAccount
+	 * @param b		Balance of BankAccount
+	 */
 	public BankAccount(String n, double b)
 	{
 		this.balance = b;
 		this.name = n;
-		nextAccNum = accNum + 1;
-		accNum = nextAccNum;
+		nextAccNum++;
+		accNum= nextAccNum;
 	}
 	
 	public void deposit(double amt)
@@ -40,7 +54,7 @@ public abstract class BankAccount
 		this.balance = balance - amt;
 	}
 	
-	public String GetName()
+	public String getName()
 	{
 		return name;
 	}
