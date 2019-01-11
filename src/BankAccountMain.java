@@ -559,10 +559,7 @@ public class BankAccountMain {
 				}
 				default:
 				{
-						System.out.println("The input " + str + " is not a valid input. Please enter a valid one to continue.");
-						System.out.println("Enter 'A' for a new account, 'T' for a transaction, or 'TRM' to terminate:" );
-						str = in.next();
-						in.nextLine();
+					System.out.println("The input " + str + " is not a valid input. Please enter a valid one to continue.");
 				}
 			}
 		}
