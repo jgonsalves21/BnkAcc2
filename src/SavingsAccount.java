@@ -1,10 +1,23 @@
-
+/**
+* @author Joshua Gonsalves
+* class SavingsAccount
+*
+*/
 public class SavingsAccount extends BankAccount 
 {
 	private double intRate;
 	private final double MIN_BAL;
 	private final double MIN_BAL_FEE;
 	
+	/**
+	 * Constructor SavingsAccount: Creates an account with params:
+	 * 
+	 * @param n		Name of account
+	 * @param b		Balance of account
+	 * @param r		Interest rate of account
+	 * @param mb	Minimum balance of account
+	 * @param mbf	Minimum balance fee of account
+	 */
 	public SavingsAccount(String n, double b, double r, double mb, double mbf)
 	{
 		super(n, b);
@@ -13,6 +26,14 @@ public class SavingsAccount extends BankAccount
 		MIN_BAL_FEE = mbf;
 	}
 	
+	/**
+	 * Constructor SavingsAccount: Creates an account with bal 0 and params:
+	 * 
+	 * @param n		Name of account
+	 * @param r		Interest rate of account
+	 * @param mb	Minimum balance of account
+	 * @param mbf	Minimum balance fee of account
+	 */
 	public SavingsAccount(String n, double r, double mb, double mbf)
 	{
 		super(n);
@@ -21,6 +42,12 @@ public class SavingsAccount extends BankAccount
 		MIN_BAL_FEE = mbf;
 	}
 	
+	/**
+    * Method withdraw: Withdraws param amt from account
+    * Overrides superclass and takes a min bal into account
+    *
+    * @param amt   Amount of money to be withdrawn
+    */
 	public void withdraw(double amt)
 	{
 		if (amt < 0)
@@ -39,6 +66,12 @@ public class SavingsAccount extends BankAccount
 		}	
 	}
 	
+	/**
+	 * Method transfer: Transfers money between two accounts using params:
+	 * 
+	 * @param other		Second bank account
+	 * @param amt		Amount of money to be transferred
+	 */
 	public void transfer(BankAccount other, double amt)
 	{
 		if (other.getName().equals(super.getName()))
@@ -60,11 +93,19 @@ public class SavingsAccount extends BankAccount
 		}
 	}
 	
+	/**
+	 * Method addInterest: Deposits money calculated using intRate into the account
+	 * 
+	 */
 	public void addInterest()
 	{
 		this.deposit(this.getBalance()*intRate);
 	}
 	
+	/**
+	 * Method endOfMonthUpdate: Adds interest to the account
+	 * 
+	 */
 	public void endOfMonthUpdate()
 	{
 		addInterest();

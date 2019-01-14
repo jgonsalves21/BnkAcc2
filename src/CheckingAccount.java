@@ -11,12 +11,12 @@ public class CheckingAccount extends BankAccount
 	private int numTransactions;
 	
 	/**
-        * Constructor Checking Account
-        * Creates a checking account with params:
-        *  
+    * Constructor Checking Account
+    * Creates a checking account with params:
+    *  
 	* @param n: Name of account owner
 	* @param b: Balance of account
-        * @param odf: Overdraft fee of the account
+    * @param odf: Overdraft fee of the account
 	* @param tf: Transaction fee of account
 	* @param freeTrans: Number of free transactions 
         */
@@ -29,11 +29,11 @@ public class CheckingAccount extends BankAccount
 	}
 	
 	/**
-        * Constructor Checking Account
-        * Creates a checking account with balance of 0 with params:
-        *  
+    * Constructor Checking Account
+    * Creates a checking account with balance of 0 and params:
+    *  
 	* @param n: Name of account owner
-        * @param odf: Overdraft fee of the account
+    * @param odf: Overdraft fee of the account
 	* @param tf: Transaction fee of account
 	* @param freeTrans: Number of free transactions 
 	*/
@@ -45,6 +45,12 @@ public class CheckingAccount extends BankAccount
 		FREE_TRANS = freeTrans;
 	}
 	
+	/**
+     * Method deposit: deposits param amt into account
+     * Overrides superclass and takes a transaction fee into account
+     *
+     * @param amt   Amount of money to be deposited
+     */
 	public void deposit(double amt)
 	{
 		if (amt < 0)
@@ -59,6 +65,12 @@ public class CheckingAccount extends BankAccount
 		}
 	}
 	
+	/**
+    * Method withdraw: Withdraws param amt from account
+    * Overrides superclass and takes a transaction fee into account
+    *
+    * @param amt   Amount of money to be withdrawn
+    */
 	public void withdraw(double amt)
 	{
 		if (amt < 0)
@@ -83,7 +95,13 @@ public class CheckingAccount extends BankAccount
 			throw new IllegalArgumentException("Your balance is negative. You may not make a withdrawal until it is positive.");
 		}
 	}
-		
+	
+	/**
+	 * Method transfer: Transfers money between two accounts using params:
+	 * 
+	 * @param other		Second bank account
+	 * @param amt		Amount of money to be transferred
+	 */
 	public void transfer(BankAccount other, double amt)
 	{
 		if (other.getName().equals(super.getName()))
@@ -110,6 +128,10 @@ public class CheckingAccount extends BankAccount
 		}
 	}
 	
+	/**
+	 * Method endOfMonthUpdate: Resets numTransactions to 0
+	 * 
+	 */
 	public void endOfMonthUpdate()
 	{
 		numTransactions = 0;

@@ -1,4 +1,8 @@
-
+/**
+* @author Joshua Gonsalves
+* class BankAccountMain
+*
+*/
 import java.util.Scanner;
 import java.util.ArrayList;
 public class BankAccountMain {
@@ -161,7 +165,6 @@ public class BankAccountMain {
 											boolean invalidName = true;
 											System.out.println("Please enter your name: ");
 											String name1 = in.nextLine();
-											in.nextLine();
 											while (invalidName)
 											{
 											for (BankAccount acc : bankAccounts)
@@ -266,7 +269,6 @@ public class BankAccountMain {
 									{
 										System.out.println("You have entered an invalid account number. If you want to re-enter your number, press 'R', and if you want to look at all of your accounts, press 'L': ");
 										String accNumChoice = in.next();
-										in.nextLine();
 										switch(accNumChoice)
 										{
 										case"R":
@@ -279,7 +281,7 @@ public class BankAccountMain {
 											boolean invalidName = true;
 											System.out.println("Please enter your name: ");
 											String name1 = in.nextLine();
-											in.nextLine();
+											name1 = in.nextLine();
 											while (invalidName)
 											{
 											for (BankAccount acc : bankAccounts)
@@ -541,11 +543,14 @@ public class BankAccountMain {
 								tChoice = false;
 								break;
 							}
+							
 							default:
 							{
 								break;
 							}
+				
 						}
+						
 						}
 					}	
 					break;
